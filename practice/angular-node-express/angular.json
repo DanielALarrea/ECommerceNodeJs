@@ -24,9 +24,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -88,9 +92,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           }
         },
         "lint": {
@@ -123,6 +131,6 @@
   },
   "defaultProject": "angular-node-express",
   "cli": {
-    "analytics": "f3962651-9bfc-47c9-b18e-d5bb9af51100"
+    "analytics": "176b8fdd-64a5-4007-a39b-ebf3565198df"
   }
 }
