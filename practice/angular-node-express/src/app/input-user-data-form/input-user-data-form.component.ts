@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'input-user-data-form',
@@ -56,6 +58,16 @@ export class InputUserDataFormComponent implements OnInit {
     if(this.userForm.invalid == true) {
       return;
     } else {
+      // let data: any = Object.assign({guid: this.guid}, this.userForm.value);
+
+      // this.http.post('/api/v1/customer', data).subscribe((data:any) => {
+      //   let path = '/user/' + data.customer.uid;
+
+      //   this.router.navigate([path]);
+      // }, error => {
+      //   this.serviceErrors = error.error.error;
+      // });
+
       this.registered = true;
     }
   }
