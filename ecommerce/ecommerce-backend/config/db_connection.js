@@ -4,14 +4,16 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "root",
-  database: "ecommerce"
+  database: "ecommerce",
+  dialect: "mysql"
 });
 
 con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    let sql = "select * from users"
-    con.query(sql, function (err, result, fields) {
+    let sql = "insert into users (email, password, role) values ('NodeJs', 'secret', 'user')";
+    sql = "select * from users";
+    con.query(sql, function (err, result) {
       if (err) throw err;
       console.log(result);
     });
