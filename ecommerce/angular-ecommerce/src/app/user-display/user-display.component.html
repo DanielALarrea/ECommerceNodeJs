@@ -1,3 +1,66 @@
 <p>user-display works!</p>
 <p>ID: {{id}}</p>
-<p>User: {{user}}</p>
+<p>User: {{user | json}}</p>
+
+<div>
+    <label>User Email:
+        <input #userEmail />
+    </label>
+    <label>User Password:
+        <input #userPassword />
+    </label>
+    <label>User Role:
+        <input #userRole />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="register(userEmail.value, userPassword.value, userRole.value);">
+      add
+    </button>
+  </div>
+
+<div>
+    <label>Delete User: 
+        <input #userId />
+    </label>
+    <button (click)="delete(userId.value);">Delete</button>
+</div>
+
+<div>
+    <label>Update ID:
+        <input #updateId />
+    </label>
+    <label>Update Email:
+        <input #updateEmail />
+    </label>
+    <label>Update Password:
+        <input #updatePassword />
+    </label>
+    <label>Update Role:
+        <input #updateRole />
+    </label>
+
+    <button (click)="update(updateId.value, updateEmail.value, updatePassword.value, updateRole.value);">
+        Update
+      </button>
+</div>
+
+<div *ngIf="allUsers">
+    <ul>
+      <li *ngFor="let user of allUsers">
+         <span>ID: {{user.id}} </span>
+         <span>Email: {{user.email}} </span>
+         <span>Password: {{user.password}} </span>
+         <span>Role: {{user.role}}</span>
+      </li>
+    </ul>
+</div>
+<div *ngIf="userData">
+    <ul>
+      <li *ngFor="let user of userData">
+         <span>ID: {{user.id}} </span>
+         <span>Email: {{user.email}} </span>
+         <span>Password: {{user.password}} </span>
+         <span>Role: {{user.role}}</span>
+      </li>
+    </ul>
+</div>
