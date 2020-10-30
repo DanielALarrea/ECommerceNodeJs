@@ -1,0 +1,8 @@
+<p>home works!</p>
+
+<p>Logged in is: {{loggedInUser | json}}</p>
+<p *ngFor="let user of loggedInUser">Your role is: {{user.role}}</p>
+
+<div *ngFor="let user of loggedInUser">
+    <div *ngIf="user.role == 'admin'">Hello admin!</div>
+</div>

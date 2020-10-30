@@ -24,6 +24,21 @@ app.get('/api/users/:id', (req, res) => {
   });
 });
 
+app.get('/api/users/authenticate'), (req, res) => {
+  const email = req.params.email;
+  const password = req.params.password;
+  const params = {
+    email     : req.params.email,
+    password  : req.params.password
+  }
+  console.log(email);
+  console.log(password);
+  con.query("SELECT * FROM users WHERE email = ? AND password = ?", params, function (err, result) {
+    if (err) throw err;
+    res.json(email);
+  });
+}
+
 app.post('/api/users', (req, res) => {
   var user = {
     email     : req.body.email,

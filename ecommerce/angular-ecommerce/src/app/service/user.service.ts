@@ -9,7 +9,7 @@ import { User } from '../models/user.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AppService {
+export class UserService {
 
   constructor(private http: HttpClient) { }
 
@@ -35,9 +35,6 @@ export class AppService {
 
   getUsers() {
     return this.http.get(this.rootURL);
-        // .pipe(
-        //   catchError(this.handleError('getUsers', []))
-        // );
   }
 
   getUserById(id: number): Observable<any> {
@@ -50,7 +47,7 @@ export class AppService {
       "password": password,
       "role": role
     }
-    
+
     return this.http.post(this.rootURL, params, this.httpOptions);
   }
 

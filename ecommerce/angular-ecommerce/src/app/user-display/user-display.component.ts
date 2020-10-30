@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { AppService } from '../service/app.service';
+import { UserService } from '../service/user.service';
 
 import { User } from '../models/user.model';
 import { EmailValidator } from '@angular/forms';
@@ -20,7 +20,7 @@ export class UserDisplayComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private userService: AppService,
+    private userService: UserService,
   ) {}
 
   ngOnInit() {

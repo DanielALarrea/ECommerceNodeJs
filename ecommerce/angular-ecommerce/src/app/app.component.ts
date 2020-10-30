@@ -1,8 +1,11 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AppService } from './service/app.service';
+import { UserService } from './service/user.service';
+import { LoginService } from './service/login.service'
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +14,9 @@ import { Subject } from 'rxjs';
 })
 export class AppComponent implements OnDestroy {
 
-  constructor(private appService: AppService) {}
+  constructor(private loginService: LoginService, private http: HttpClient, private router: Router) {
+    this.loginService.authenticate(undefined, undefined);
+  }
 
   title = 'angular-ecommerce';
 
@@ -35,14 +40,21 @@ export class AppComponent implements OnDestroy {
     // });
   }
 
-  getAllUsers() {
-    this.appService.getUsers().pipe(takeUntil(this.destroy$)).subscribe((users: any[]) => {
-        this.users = users;
-    });
-  }
+  // getAllUsers() {
+  //   this.appService.getUsers().pipe(takeUntil(this.destroy$)).subscribe((users: any[]) => {
+  //       this.users = users;
+  //   });
+  // }
 
   ngOnDestroy() {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
   }
+
+  // logout() {
+  //   this.http.post('logout', {}).finally(() => {
+  //       this.loginService.authenticated = false;
+  //       this.router.navigateByUrl('/login');
+  //   }).subscribe();
+  // }
 }
