@@ -1,6 +1,32 @@
 <h2>Profile</h2>
 
-<p>ID: {{id}}</p>
+<table border>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Role</th>
+        <th colspan="2">Actions</th>
+    </tr>
+    <tr *ngFor="let user of userData">
+        <td><input value={{user.id}} disabled/></td>
+        <td><input #updateEmail value={{user.email}}/></td>
+        <td><input #updatePassword value={{user.password}}/></td>
+        <td><input value={{user.role}} disabled/></td>
+        <td><button (click)="delete(user.id);">
+            Delete
+        </button></td>
+        <td><button (click)="update(user.id, updateEmail.value, updatePassword.value, user.role);">
+            Update
+        </button></td>
+    </tr>
+</table>
+
+<div>
+    <button (click)="returnHome();">Home</button>
+</div>
+
+<!-- <p>ID: {{id}}</p>
 <p>User: {{user | json}}</p>
 
 <div>
@@ -13,7 +39,6 @@
     <label>User Role:
         <input #userRole />
     </label>
-    <!-- (click) passes input value to add() and then clears the input -->
     <button (click)="register(userEmail.value, userPassword.value, userRole.value);">
       add
     </button>
@@ -42,7 +67,7 @@
 
     <button (click)="update(updateId.value, updateEmail.value, updatePassword.value, updateRole.value);">
         Update
-      </button>
+    </button>
 </div>
 
 <div *ngIf="allUsers">
@@ -64,8 +89,5 @@
          <span>Role: {{user.role}}</span>
       </li>
     </ul>
-</div>
+</div> -->
 
-<div>
-    <button (click)="returnHome();">Home</button>
-</div>

@@ -47,6 +47,7 @@ export class UserDisplayComponent implements OnInit {
 
   update(id: number, email: string, password: string, role: string) {
     this.userService.updateUserById(id, email, password, role).subscribe();
+    location.reload();
   }
 
   register(email: string, password: string, role: string) {
@@ -59,6 +60,8 @@ export class UserDisplayComponent implements OnInit {
   delete(id: number) {
     console.log("Deleting user: " + id);
     this.userService.deleteUserById(id).subscribe();
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
   returnHome() {

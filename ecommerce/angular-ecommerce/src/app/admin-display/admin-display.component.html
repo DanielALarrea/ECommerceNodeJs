@@ -1,4 +1,28 @@
-<p>admin-display works!</p>
+<h2>Admin</h2>
+
+<table border>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Role</th>
+        <th>Actions</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input #userEmail placeholder="email"/></td>
+        <td><input #userPassword placeholder="password"/></td>
+        <td><input #userRole placeholder="user"/></td>
+        <td><button (click)="add(userEmail.value, userPassword.value, userRole.value);">Add</button></td>
+    </tr>
+    <tr *ngFor="let user of allUsers">
+        <td>{{user.id}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.role}}</td>
+        <td><button (click)="delete(user.id)">Delete</button></td>
+    </tr>
+</table>
 
 <div>
     <button (click)="returnHome();">Home</button>
