@@ -1,1 +1,17 @@
-<p>register-form works!</p>
+<h2>Register</h2>
+
+<div>
+    <label>User Email:
+        <input #userEmail />
+    </label>
+    <label>User Password:
+        <input #userPassword />
+    </label>
+    <button (click)="register(userEmail.value, userPassword.value);">
+      Register
+    </button>
+</div>
+
+<div>
+    <button (click)="returnToLogin();">Back</button>
+</div>

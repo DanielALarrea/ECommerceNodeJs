@@ -21,6 +21,7 @@ export class UserDisplayComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -58,6 +59,11 @@ export class UserDisplayComponent implements OnInit {
   delete(id: number) {
     console.log("Deleting user: " + id);
     this.userService.deleteUserById(id).subscribe();
+  }
+
+  returnHome() {
+    let homeURL = '/home/' + localStorage.getItem("loggedInUser");
+    this.router.navigate([homeURL]);
   }
 
 }

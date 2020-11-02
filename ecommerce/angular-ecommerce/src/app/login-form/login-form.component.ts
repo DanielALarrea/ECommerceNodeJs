@@ -35,4 +35,8 @@ export class LoginFormComponent implements OnInit {
     console.log(localStorage.getItem("loggedInUser"));
     this.router.navigate(['/home', id]);
   }
+
+  travelToRegister() {
+    this.router.navigate(['/register']);
+  }
 }

@@ -1,8 +1,19 @@
-<p>home works!</p>
+<h2>Home</h2>
 
 <p>Logged in is: {{loggedInUser | json}}</p>
 <p *ngFor="let user of loggedInUser">Your role is: {{user.role}}</p>
 
 <div *ngFor="let user of loggedInUser">
-    <div *ngIf="user.role == 'admin'">Hello admin!</div>
+    <div *ngIf="user.role == 'admin'">
+        <p>Hello admin!</p>
+        <button (click)="admin();">Admin</button>
+    </div>
+</div>
+
+<div>
+    <button (click)="profile();">Profile</button>
+</div>
+
+<div>
+    <button (click)="logout();">Log Out</button>
 </div>
