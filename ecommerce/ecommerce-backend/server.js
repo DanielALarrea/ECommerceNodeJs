@@ -16,6 +16,17 @@ app.get('/api/users', (req, res) => {
   });
 });
 
+
+app.get('/api/users/authenticate', (req, res) => {
+  const email    = req.query.email;
+  const password = req.query.password;
+  con.query("SELECT id FROM users WHERE email = ? AND password = ?", 
+           [email, password], function (err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
 app.get('/api/users/:id', (req, res) => {
   const id = req.params.id;
   con.query("SELECT * FROM users WHERE id = ?", id, function (err, result) {
@@ -23,21 +34,6 @@ app.get('/api/users/:id', (req, res) => {
     res.json(result);
   });
 });
-
-app.get('/api/users/authenticate'), (req, res) => {
-  const email = req.params.email;
-  const password = req.params.password;
-  const params = {
-    email     : req.params.email,
-    password  : req.params.password
-  }
-  console.log(email);
-  console.log(password);
-  con.query("SELECT * FROM users WHERE email = ? AND password = ?", params, function (err, result) {
-    if (err) throw err;
-    res.json(email);
-  });
-}
 
 app.post('/api/users', (req, res) => {
   var user = {
@@ -71,10 +67,6 @@ app.delete('/api/users/:id', (req, res) => {
     if (err) throw err;
     res.json(result);
   });
-});
-
-app.get('/', (req,res) => {
-    res.send('App Works !!!');
 });
 
 app.listen(port, () => {

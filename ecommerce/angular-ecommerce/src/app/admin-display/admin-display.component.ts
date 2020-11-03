@@ -38,13 +38,20 @@ export class AdminDisplayComponent implements OnInit {
   }
 
   delete(id: number) {
-    console.log("Deleting user: " + id);
-    this.userService.deleteUserById(id).subscribe();
-    location.reload();
+    if(confirm("Are you sure you want to delete this account?")) {
+      console.log("Deleting user: " + id);
+      this.userService.deleteUserById(id).subscribe();
+      location.reload();
+    }
   }
 
   returnHome() {
     let homeURL = '/home/' + localStorage.getItem("loggedInUser");
     this.router.navigate([homeURL]);
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }

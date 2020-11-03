@@ -58,15 +58,22 @@ export class UserDisplayComponent implements OnInit {
   }
 
   delete(id: number) {
-    console.log("Deleting user: " + id);
-    this.userService.deleteUserById(id).subscribe();
-    localStorage.clear();
-    this.router.navigate(['/login']);
+    if(confirm("Are you sure you want to delete your account?")) {
+      console.log("Deleting user: " + id);
+      this.userService.deleteUserById(id).subscribe();
+      localStorage.clear();
+      this.router.navigate(['/login']);
+    }
   }
 
   returnHome() {
     let homeURL = '/home/' + localStorage.getItem("loggedInUser");
     this.router.navigate([homeURL]);
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }

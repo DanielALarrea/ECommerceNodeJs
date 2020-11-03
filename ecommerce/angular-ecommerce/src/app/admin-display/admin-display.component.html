@@ -1,6 +1,6 @@
 <h2>Admin</h2>
 
-<table border>
+<table class="table">
     <tr>
         <th>ID</th>
         <th>Email</th>
@@ -13,17 +13,28 @@
         <td><input #userEmail placeholder="email"/></td>
         <td><input #userPassword placeholder="password"/></td>
         <td><input #userRole placeholder="user"/></td>
-        <td><button (click)="add(userEmail.value, userPassword.value, userRole.value);">Add</button></td>
+        <td>
+            <button type="button" class="btn btn-success" 
+            (click)="add(userEmail.value, userPassword.value, userRole.value);">
+                Add
+            </button>
+        </td>
     </tr>
     <tr *ngFor="let user of allUsers">
         <td>{{user.id}}</td>
         <td>{{user.email}}</td>
         <td>{{user.password}}</td>
         <td>{{user.role}}</td>
-        <td><button (click)="delete(user.id)">Delete</button></td>
+        <td>
+            <button type="button" class="btn btn-danger" 
+            (click)="delete(user.id)">
+                Delete
+            </button>
+        </td>
     </tr>
 </table>
 
 <div>
-    <button (click)="returnHome();">Home</button>
+    <button type="button" class="btn btn-primary" (click)="returnHome();">Home</button>
+    <button type="button" class="btn btn-primary" (click)="logout();">Log Out</button>
 </div>

@@ -32,14 +32,15 @@ export class LoginService {
   authenticateUser(email: string, password: string): Observable<any> {
     let users = this.http.get(this.rootURL);
 
-    let params = new HttpParams();
+    const params = new HttpParams()
+      .set('email', email)
+      .set('password', password);
 
-    params.append('email', email);
-    params.append('password', password);
+    console.log(params.toString());
 
-    console.log(params);
+    const response = this.http.get(this.rootURL + "/authenticate", {params: params});
 
-    return this.http.get(this.rootURL + "/authenticate", {params: params});
+    return response;
   }
 
   authenticateUserById(id: number): Observable<any> {

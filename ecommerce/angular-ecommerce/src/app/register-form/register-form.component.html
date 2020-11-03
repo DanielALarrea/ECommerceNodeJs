@@ -1,17 +1,24 @@
 <h2>Register</h2>
 
-<div>
-    <label>User Email:
-        <input #userEmail />
-    </label>
-    <label>User Password:
-        <input #userPassword />
-    </label>
-    <button (click)="register(userEmail.value, userPassword.value);">
+<form>
+    <div class="form-group">
+        <label>Email:</label>
+        <input class="form-control" #userEmail />
+    </div>
+    <div class="form-group">
+        <label>Password:</label>
+        <input class="form-control" #userPassword />
+    </div>
+    <div class="form-group">
+        <label>Confirm Password:</label>
+        <input class="form-control" #confirmPassword />
+    </div>
+    <button type="button" class="btn btn-primary" 
+    (click)="register(userEmail.value, userPassword.value, confirmPassword.value);">
       Register
     </button>
-</div>
+</form>
 
 <div>
-    <button (click)="returnToLogin();">Back</button>
+    <button type="button" class="btn btn-primary"  (click)="returnToLogin();">Back</button>
 </div>

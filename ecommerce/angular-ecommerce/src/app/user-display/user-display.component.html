@@ -1,6 +1,6 @@
 <h2>Profile</h2>
 
-<table border>
+<table class="table">
     <tr>
         <th>ID</th>
         <th>Email</th>
@@ -13,17 +13,22 @@
         <td><input #updateEmail value={{user.email}}/></td>
         <td><input #updatePassword value={{user.password}}/></td>
         <td><input value={{user.role}} disabled/></td>
-        <td><button (click)="delete(user.id);">
-            Delete
-        </button></td>
-        <td><button (click)="update(user.id, updateEmail.value, updatePassword.value, user.role);">
-            Update
-        </button></td>
+        <td>
+            <button type="button" class="btn btn-primary"  (click)="update(user.id, updateEmail.value, updatePassword.value, user.role);">
+                Update
+            </button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-danger"  (click)="delete(user.id);">
+                Delete
+            </button>
+        </td>
     </tr>
 </table>
 
 <div>
-    <button (click)="returnHome();">Home</button>
+    <button type="button" class="btn btn-primary"  (click)="returnHome();">Home</button>
+    <button type="button" class="btn btn-primary"  (click)="logout();">Log Out</button>
 </div>
 
 <!-- <p>ID: {{id}}</p>

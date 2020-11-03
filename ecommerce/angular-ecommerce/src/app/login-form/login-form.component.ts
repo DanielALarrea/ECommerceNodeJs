@@ -9,7 +9,7 @@ import { LoginService } from '../service/login.service';
 })
 export class LoginFormComponent implements OnInit {
 
-  loggedInId;
+  loggedInId: number;
 
   constructor(
     private loginService: LoginService,
@@ -21,9 +21,10 @@ export class LoginFormComponent implements OnInit {
 
   login(email: string, password: string) {
     this.loginService.authenticateUser(email, password)
-      .subscribe(user => {
-        this.loggedInId = user.id;
-        console.log(user);
+      .subscribe(id => {
+        this.loggedInId = id;
+        localStorage.setItem("loggedInUser", this.loggedInId.toString());
+        console.log(id);
         console.log(this.loggedInId);
         this.router.navigate(['/home', this.loggedInId]);
       })

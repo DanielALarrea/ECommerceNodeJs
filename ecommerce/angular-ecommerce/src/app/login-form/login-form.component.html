@@ -26,28 +26,30 @@
 </form> -->
 
 <h2>Login</h2>
-<div>
-    <label>User Email:
-        <input #userEmail />
-    </label>
-    <label>User Password:
-        <input #userPassword />
-    </label>
-    <button (click)="login(userEmail.value, userPassword.value);">
+<form>
+    <div class="form-group">
+        <label>User Email:</label>
+        <input class="form-control" #userEmail />
+    </div>
+    <div class="form-group">
+        <label>User Password:</label>
+        <input class="form-control" #userPassword />
+    </div>
+    <button type="button" class="btn btn-primary" (click)="login(userEmail.value, userPassword.value);">
       Login
     </button>
-</div>
+</form>
 
-<div>
-    <label>User ID:
-        <input #userId />
-    </label>
-    <button (click)="loginById(userId.value);">
-      Login with ID
+<form>
+    <div class="form-group">
+        <label>User ID:</label>
+        <input class="form-control" #userId />
+    </div>
+    <button type="button" class="btn btn-primary" (click)="loginById(userId.value);">
+      Login
     </button>
-
-</div>
+</form>
 
 <div>
-    <button (click)="travelToRegister();">Register</button>
+    <button type="button" class="btn btn-primary" (click)="travelToRegister();">Register</button>
 </div>

@@ -21,13 +21,11 @@ export class HomeComponent implements OnInit {
   }
 
   getLoggedInUser() {
-    console.log("local storage value");
     console.log(localStorage.getItem("loggedInUser"));
     let loggedInId = Number(localStorage.getItem("loggedInUser"));
     this.userService.getUserById(loggedInId).subscribe(user => {
       this.loggedInUser = user;
     });
-    console.log("this loggedInUser");
     console.log(this.loggedInUser);
   }
 
