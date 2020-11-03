@@ -1,4 +1,8 @@
-<h2>Admin</h2>
+<header>
+    <h2>Admin</h2>
+    <button type="button" class="btn btn-primary" (click)="returnHome();">Home</button>
+    <button type="button" class="btn btn-primary" (click)="logout();">Log Out</button>
+</header>
 
 <table class="table">
     <tr>
@@ -21,10 +25,10 @@
         </td>
     </tr>
     <tr *ngFor="let user of allUsers">
-        <td>{{user.id}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.password}}</td>
-        <td>{{user.role}}</td>
+        <td><input value={{user.id}} disabled></td>
+        <td><input value={{user.email}} disabled></td>
+        <td><input type="password" value={{user.password}} disabled></td>
+        <td><input value={{user.role}} disabled></td>
         <td>
             <button type="button" class="btn btn-danger" 
             (click)="delete(user.id)">
@@ -35,6 +39,5 @@
 </table>
 
 <div>
-    <button type="button" class="btn btn-primary" (click)="returnHome();">Home</button>
-    <button type="button" class="btn btn-primary" (click)="logout();">Log Out</button>
+    
 </div>

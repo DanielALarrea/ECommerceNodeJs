@@ -1,15 +1,9 @@
 <h2>Home</h2>
 
-<!-- <p>Logged in is: {{loggedInUser | json}}</p>
-<p *ngFor="let user of loggedInUser">Your role is: {{user.role}}</p> -->
-
 <div *ngFor="let user of loggedInUser">
-    <div *ngIf="user.role == 'admin'">
-        <button type="button" class="btn btn-primary"  (click)="admin();">Admin</button>
+    <div>
+        <button *ngIf="user.role == 'admin'" type="button" class="btn btn-primary"  (click)="admin();">Admin</button>
+        <button type="button" class="btn btn-primary" (click)="profile();">Profile</button>
+        <button type="button" class="btn btn-primary"  (click)="logout();">Log Out</button>
     </div>
-</div>
-
-<div>
-    <button type="button" class="btn btn-primary" (click)="profile();">Profile</button>
-    <button type="button" class="btn btn-primary"  (click)="logout();">Log Out</button>
 </div>
