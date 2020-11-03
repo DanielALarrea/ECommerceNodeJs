@@ -2,14 +2,18 @@
 <form>
     <div class="form-group">
         <label>User Email:</label>
-        <input class="form-control" #userEmail />
+        <input class="form-control" #userEmail required/>
     </div>
     <div class="form-group">
         <label>User Password:</label>
-        <input type="password" class="form-control" #userPassword />
+        <input type="password" class="form-control" #userPassword required/>
     </div>
-    <button type="button" class="btn btn-primary" (click)="login(userEmail.value, userPassword.value);">
+    <button type="button" class="btn btn-primary"
+        (click)="login(userEmail.value, userPassword.value);">
       Login
     </button>
-    <button type="button" class="btn btn-primary" (click)="travelToRegister();">Register</button>
+    <button type="button" class="btn btn-primary"
+        (click)="travelToRegister();">
+        Register
+    </button>
 </form>

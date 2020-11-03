@@ -1,7 +1,13 @@
 <header>
     <h2>Admin</h2>
-    <button type="button" class="btn btn-primary" (click)="returnHome();">Home</button>
-    <button type="button" class="btn btn-primary" (click)="logout();">Log Out</button>
+    <button type="button" class="btn btn-primary"
+        (click)="returnHome();">
+        Home
+    </button>
+    <button type="button" class="btn btn-primary"
+        (click)="logout();">
+        Log Out
+    </button>
 </header>
 
 <table class="table">
@@ -14,24 +20,24 @@
     </tr>
     <tr>
         <td></td>
-        <td><input #userEmail placeholder="email"/></td>
-        <td><input #userPassword placeholder="password"/></td>
-        <td><input #userRole placeholder="user"/></td>
+        <td><input class="form-control" #userEmail placeholder="email" required/></td>
+        <td><input class="form-control" #userPassword placeholder="password" required/></td>
+        <td><input class="form-control" #userRole placeholder="user" required/></td>
         <td>
             <button type="button" class="btn btn-success" 
-            (click)="add(userEmail.value, userPassword.value, userRole.value);">
+                (click)="add(userEmail.value, userPassword.value, userRole.value);">
                 Add
             </button>
         </td>
     </tr>
     <tr *ngFor="let user of allUsers">
-        <td><input value={{user.id}} disabled></td>
-        <td><input value={{user.email}} disabled></td>
-        <td><input type="password" value={{user.password}} disabled></td>
-        <td><input value={{user.role}} disabled></td>
+        <td><input class="form-control" value={{user.id}} disabled></td>
+        <td><input class="form-control" value={{user.email}} disabled></td>
+        <td><input class="form-control" type="password" value={{user.password}} disabled></td>
+        <td><input class="form-control" value={{user.role}} disabled></td>
         <td>
             <button type="button" class="btn btn-danger" 
-            (click)="delete(user.id)">
+                (click)="delete(user.id)">
                 Delete
             </button>
         </td>

@@ -1,7 +1,13 @@
 <header>
     <h2>Profile</h2>
-    <button type="button" class="btn btn-primary"  (click)="returnHome();">Home</button>
-    <button type="button" class="btn btn-primary"  (click)="logout();">Log Out</button>
+    <button type="button" class="btn btn-primary"
+        (click)="returnHome();">
+        Home
+    </button>
+    <button type="button" class="btn btn-primary"
+        (click)="logout();">
+        Log Out
+    </button>
 </header>
 
 <table class="table">
@@ -9,21 +15,25 @@
         <th>ID</th>
         <th>Email</th>
         <th>Password</th>
+        <th>Confirm Password</th>
         <th>Role</th>
         <th colspan="2">Actions</th>
     </tr>
     <tr *ngFor="let user of userData">
-        <td><input value={{user.id}} disabled/></td>
-        <td><input #updateEmail value={{user.email}}/></td>
-        <td><input #updatePassword value={{user.password}}/></td>
-        <td><input value={{user.role}} disabled/></td>
+        <td><input class="form-control" value={{user.id}} disabled/></td>
+        <td><input class="form-control" #updateEmail value={{user.email}}/></td>
+        <td><input class="form-control" #updatePassword value={{user.password}}/></td>
+        <td><input class="form-control" #updateConfirmPass/></td>
+        <td><input class="form-control" value={{user.role}} disabled/></td>
         <td>
-            <button type="button" class="btn btn-primary"  (click)="update(user.id, updateEmail.value, updatePassword.value, user.role);">
+            <button type="button" class="btn btn-primary"
+                (click)="update(user.id, updateEmail.value, updatePassword.value, updateConfirmPass.value, user.role);">
                 Update
             </button>
         </td>
         <td>
-            <button type="button" class="btn btn-danger"  (click)="delete(user.id);">
+            <button type="button" class="btn btn-danger"
+                (click)="delete(user.id);">
                 Delete
             </button>
         </td>

@@ -19,12 +19,15 @@ export class RegisterFormComponent implements OnInit {
   }
 
   register(email: string, password: string, confirmPass: String) {
-    if(password == confirmPass) {
-      this.userService.addUser(email, password, "user").subscribe();
-      this.returnToLogin();
+    if(email.trim() && password.trim() && confirmPass.trim()) {
+      if(password == confirmPass) {
+        this.userService.addUser(email, password, "user").subscribe();
+        this.returnToLogin();
+      } else {
+        alert("The given passwords do not match");
+      }
     } else {
-      console.log("Passwords don't match");
-      alert("The given passwords do not match");
+      alert("The fields cannot be empty");
     }
   }
 

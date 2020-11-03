@@ -33,8 +33,12 @@ export class AdminDisplayComponent implements OnInit {
   }
 
   add(email: string, password: string, role: string) {
-    this.userService.addUser(email, password, role).subscribe();
-    location.reload();
+    if(email.trim() && password.trim() && role.trim()) {
+      this.userService.addUser(email, password, role).subscribe();
+      location.reload();
+    } else {
+      alert("The fields cannot be empty");
+    }
   }
 
   delete(id: number) {

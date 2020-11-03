@@ -45,9 +45,17 @@ export class UserDisplayComponent implements OnInit {
     });
   }
 
-  update(id: number, email: string, password: string, role: string) {
-    this.userService.updateUserById(id, email, password, role).subscribe();
-    location.reload();
+  update(id: number, email: string, password: string, confirmPass:string, role: string) {
+    if(email.trim() && password.trim()) {
+      if(password == confirmPass) {
+        this.userService.updateUserById(id, email, password, role).subscribe();
+        location.reload();
+      } else {
+        alert("Passwords do not match");
+      }
+    } else {
+      alert("Fields cannot be empty");
+    }
   }
 
   register(email: string, password: string, role: string) {
