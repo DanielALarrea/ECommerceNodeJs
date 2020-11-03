@@ -36,11 +36,7 @@ export class LoginService {
       .set('email', email)
       .set('password', password);
 
-    console.log(params.toString());
-
-    const response = this.http.get(this.rootURL + "/authenticate", {params: params});
-
-    return response;
+    return this.http.get(this.rootURL + "/authenticate", {params: params});
   }
 
   authenticateUserById(id: number): Observable<any> {

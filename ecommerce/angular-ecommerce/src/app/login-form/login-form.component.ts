@@ -22,11 +22,13 @@ export class LoginFormComponent implements OnInit {
   login(email: string, password: string) {
     this.loginService.authenticateUser(email, password)
       .subscribe(id => {
-        this.loggedInId = id;
-        localStorage.setItem("loggedInUser", this.loggedInId.toString());
-        console.log(id);
-        console.log(this.loggedInId);
-        this.router.navigate(['/home', this.loggedInId]);
+        if(id.length > 0) {
+          this.loggedInId = id[0].id;
+          localStorage.setItem("loggedInUser", this.loggedInId.toString());
+          this.router.navigate(['/home', this.loggedInId]);
+        } else {
+          alert("No user found, please try again");
+        }
       })
   }
 
