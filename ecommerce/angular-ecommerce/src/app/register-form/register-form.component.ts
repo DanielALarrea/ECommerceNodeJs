@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { equal } from 'assert';
 import { UserService } from '../service/user.service';
 
 @Component({

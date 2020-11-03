@@ -42,4 +42,12 @@ export class LoginService {
   authenticateUserById(id: number): Observable<any> {
     return this.http.get(this.rootURL + "/" + id);
   }
+
+  checkLoggedIn(): boolean {
+    if(localStorage.getItem("loggedInUser")) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

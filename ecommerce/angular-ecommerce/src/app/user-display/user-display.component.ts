@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { LoginService } from '../service/login.service';
 import { UserService } from '../service/user.service';
-
-import { User } from '../models/user.model';
-import { EmailValidator } from '@angular/forms';
-import { identifierModuleUrl } from '@angular/compiler';
-import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-display',
@@ -21,12 +17,16 @@ export class UserDisplayComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
+    private loginService: LoginService,
     private router: Router
   ) {}
 
   ngOnInit() {
     this.get();
     this.getAll();
+    if(!this.loginService.checkLoggedIn()) {
+      this.router.navigate(['/login']);
+    }
   }
 
   get() {
